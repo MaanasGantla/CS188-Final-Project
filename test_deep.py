@@ -17,6 +17,9 @@ policy = DeepEEPolicy(model_path="policy.pth")
 success_count = 0
 n_trials = 5  
 
+
+
+# query the policy for the number of trials you wish to test on
 for trial in range(n_trials):
     obs = env.reset()
     for _ in range(2500):

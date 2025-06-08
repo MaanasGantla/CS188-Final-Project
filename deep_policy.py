@@ -20,6 +20,9 @@ class DemoDataset(Dataset):
     def __getitem__(self, idx):
         return self.X[idx], self.Y[idx]
 
+
+
+# establish the layers for the MLP
 class MLPPolicy(nn.Module):
     def __init__(self, input_dim=10, hidden_dim=128, output_dim=7):
         super().__init__()
@@ -37,6 +40,9 @@ class MLPPolicy(nn.Module):
     def forward(self, x):
         return self.net(x)
 
+
+
+# function to train the network
 def train_policy(npz_path, save_path="policy.pth",
                  batch_size=128, epochs=200, lr=1e-3):
 
@@ -49,10 +55,12 @@ def train_policy(npz_path, save_path="policy.pth",
     n_train = N - n_val
     train_ds, val_ds = random_split(dataset, [n_train, n_val])
 
+
+    # load the train and val data
     train_loader = DataLoader(train_ds, batch_size=batch_size, shuffle=True)
     val_loader   = DataLoader(val_ds,   batch_size=batch_size, shuffle=False)
 
-
+    # instantiate the model
     model = MLPPolicy(input_dim=10, hidden_dim=128, output_dim=7).to(DEVICE)
     optimizer = torch.optim.Adam(model.parameters(), lr=lr)
     scheduler = torch.optim.lr_scheduler.StepLR(optimizer, step_size=20, gamma=0.5)
@@ -74,7 +82,7 @@ def train_policy(npz_path, save_path="policy.pth",
         scheduler.step()
 
 
-        model.eval()
+        model.eval() # eval step
         val_loss = 0.0
         with torch.no_grad():
             for XB, YB in val_loader:

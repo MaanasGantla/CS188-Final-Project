@@ -1,12 +1,11 @@
 # Robosuite Square Assembly Imitation Learning
 
-Default project for **CS 188: Introduction to Robotics** (Spring 2025)  
-Imitation learning (Behavior Cloning) on the Robosuite **NutAssemblySquare** task.
+The default task for **CS 188: Introduction to Robotics** (Spring 2025). This solution used imitation learning (Behavior Cloning) on the Robosuite **NutAssemblySquare** task.
 
 
 ## Table of Contents
 - [Project Overview](#project-overview)
-- [Creating Environment](#create-environment)
+- [Creating Environment](#creating-environment)
 - [Training the Neural Network](#train-the-neural-network)
 - [Test the Policy](#test-the-policy)
 - [Citation](#citation)
@@ -41,12 +40,16 @@ conda activate robosuite_arm
 ```
 python deep_policy.py
 ```
-
+This command will call build_dataset from the extract_dataset.py file, so there is no need
+to make a separate invocation to this function.
 
 ### Test the Policy
 ```
 python test_deep.py
 ```
+
+This command queries from the deep_policy.py file, so there is no need to make a separate invocation
+to functions in the deep_policy.py file.
 
 
 ## Citation
@@ -65,8 +68,8 @@ If you find this work helpful and wish to cite it, here is the citation:
 
 
 ## License
-This project is licensed under the MIT license. See the [LICENSE](License) file for details on the license.
+This project is licensed under the MIT license. See the [LICENSE](LICENSE) file for details on the license.
 
 
 ## Contact
-For any questions, please contact [Maanas Gantla](mailto:gantlamr@gmail.com)
+For any questions, please contact [Maanas Gantla](mailto:gantlamr@gmail.com).

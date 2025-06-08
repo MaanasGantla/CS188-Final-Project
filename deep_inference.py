@@ -4,6 +4,10 @@ import numpy as np
 
 DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
+
+
+
+# policy querying the MLP
 class MLPPolicy(nn.Module):
     def __init__(self, input_dim=10, hidden_dim=128, output_dim=7):
         super().__init__()
@@ -24,11 +28,6 @@ class DeepEEPolicy:
         2) do action
         3) grab new eef position and repeat this cycle until success
     """
-
-
-    
-
-
     def __init__(self, model_path="policy.pth", norm_stats_path="norm_stats.npz"):
 
         stats = np.load(norm_stats_path)
