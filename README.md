@@ -1,10 +1,19 @@
 # Robosuite Square Assembly Imitation Learning
 
-Default‐project for **CS 188: Introduction to Robotics** (Spring 2025)  
-Imitation learning (Behavior Cloning) on the Robosuite *NutAssemblySquare* task.
+Default project for **CS 188: Introduction to Robotics** (Spring 2025)  
+Imitation learning (Behavior Cloning) on the Robosuite **NutAssemblySquare** task.
 
 
-## Overview
+## Table of Contents
+1. Project Overview (#project-overview)
+2. Creating Environment (#create-environment)
+3. Training the Neural Network (#train-the-neural-network)
+4. Test the Policy (#test-the-policy)
+5. Citation (#citation)
+6. License (#license)
+7. Contact (#contact)
+
+## Project Overview
 
 The goal is to learn a policy, using a low-dimensional state, that assembles a square nut onto a peg that 
 can be in a variety of orientations and positions.
@@ -16,8 +25,11 @@ Using two linear layers, we train our neural network with this data. This is don
 
 Finally, the end effector position and object postiions/orientations are inputted to our model, outputting a 7D vector. This process is continued until actions are taken that lead to a success. This is done in deep_inference.py, and the test_deep.py queries this policy for a number of trials to measure success.
 
-## Creating environment
+## Creating Environment
+1. Clone the repository.
+2. Follow the [installation guide](https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.htmll) for conda.
 
+Run the following commands from the root of the repository:
 ```
 conda env create -f environment.yml
 conda activate robosuite_arm
@@ -31,7 +43,30 @@ python deep_policy.py
 ```
 
 
-### Test the policy
+### Test the Policy
 ```
 python test_deep.py
 ```
+
+
+## Citation
+If you find this work helpful and wish to cite it, here is the citation:
+
+```bibtex
+@inproceedings{
+    maanas2025SquareNutAssemblyviaBehaviorCloning,
+    title={Square Nut Assembly via Behavior Cloning},
+    author={Maanas Gantla},
+    year={2025},
+    url={https://github.com/MaanasGantla/CS188-Final-Project/tree/main}
+}
+```
+
+
+
+## License
+This project is licensed under the MIT license. See the [LICENSE](License) file for details on the license.
+
+
+## Contact
+For any questions, please contact [Maanas Gantla](mailto:gantlamr@gmail.com)
