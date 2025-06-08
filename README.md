@@ -5,13 +5,13 @@ Imitation learning (Behavior Cloning) on the Robosuite **NutAssemblySquare** tas
 
 
 ## Table of Contents
-1. Project Overview (#project-overview)
-2. Creating Environment (#create-environment)
-3. Training the Neural Network (#train-the-neural-network)
-4. Test the Policy (#test-the-policy)
-5. Citation (#citation)
-6. License (#license)
-7. Contact (#contact)
+1. [Project Overview] (#project-overview)
+2. [Creating Environment] (#create-environment)
+3. [Training the Neural Network] (#train-the-neural-network)
+4. [Test the Policy] (#test-the-policy)
+5. [Citation] (#citation)
+6. [License] (#license)
+7. [Contact] (#contact)
 
 ## Project Overview
 
