@@ -6,7 +6,7 @@ The default task for **CS 188: Introduction to Robotics** (Spring 2025). This so
 ## Table of Contents
 - [Project Overview](#project-overview)
 - [Creating Environment](#creating-environment)
-- [Training the Neural Network](#train-the-neural-network)
+- [Training the Neural Network](#training-the-neural-network)
 - [Test the Policy](#test-the-policy)
 - [Citation](#citation)
 - [License](#license)
@@ -40,7 +40,7 @@ conda activate robosuite_arm
 ```
 python deep_policy.py
 ```
-This command will call build_dataset from the extract_dataset.py file, so there is no need
+This command will call build_dataset from the extract_data.py file, so there is no need
 to make a separate invocation to this function.
 
 ### Test the Policy
