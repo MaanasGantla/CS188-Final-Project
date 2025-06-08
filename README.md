@@ -1,7 +1,7 @@
 # Robosuite Square Assembly Imitation Learning
 
-> Default‐project for **CS 188: Introduction to Robotics** (Spring 2025)  
-> Imitation learning (Behavior Cloning) on the Robosuite *NutAssemblySquare* task.
+Default‐project for **CS 188: Introduction to Robotics** (Spring 2025)  
+Imitation learning (Behavior Cloning) on the Robosuite *NutAssemblySquare* task.
 
 
 ## Overview
@@ -23,13 +23,15 @@ conda env create -f environment.yml
 conda activate robosuite_arm
 ```
 
-## Train the Neural Network
+## Usage
+
+### Train the Neural Network
 ```
 python deep_policy.py
 ```
 
 
-## Test the policy
+### Test the policy
 ```
 python test_deep.py
 ```
