@@ -10,6 +10,9 @@ title: COM SCI 188 Final Project
 
 ## Problem Statement
 The **NutAssemblySquare** environment randomizes a square nut’s position and orientation for each trial.  
+
+Testing that some math renders: $2 + 2 = 4$.
+
 This approach learns a closed-loop policy **π**: $\mathbb{R}^{10}\to\mathbb{R}^7$  
   using low-dimensional state (3D end-effector position, 3D nut position, 4D nut quaternion), reliably inserting the nut onto its peg within a 2,500 time step limit.
 
@@ -21,10 +24,10 @@ This approach learns a closed-loop policy **π**: $\mathbb{R}^{10}\to\mathbb{R}^
 
 - **Behavior Cloning Model**  
   - Two-layer MLP:  
-    \[
-      f(s) = W_2\,\mathrm{ReLU}(W_1\,s + b_1) + b_2,
-      \quad W_1\in\mathbb R^{128\times10},\,W_2\in\mathbb R^{7\times128}.
-    \]
+    $$ 
+    f(s) \;=\; W_2\,\mathrm{ReLU}(W_1\,s + b_1) + b_2,
+    \quad W_1\in\mathbb{R}^{128\times10},\;W_2\in\mathbb{R}^{7\times128}.
+    $$
   - The optimal hyperparameters used for training were: Mean Squared Error (MSE) loss, Adam (learning rate = 1e-3), batch = 256, 100 epochs, step-LR halving every 20 epochs.  
   - 90/10 train/validation split.
 
@@ -56,12 +59,12 @@ This approach learns a closed-loop policy **π**: $\mathbb{R}^{10}\to\mathbb{R}^
 |:--------------------:|:--------------------:|
 | (a) Failed trial     | (b) Successful trial |
 
-Behavior cloning on the 10-D state is **simple**, **fast**, and yields up to 82 % success in minutes on CPU. The two-layer MLP converged quickly, whereas:
+Behavior cloning on the 10-D state is **simple**, **fast**, and yields up to 82 % success in minutes on CPU. The two-layer MLP converged quickly, whereas my other two strategies initally attempted:
 
-- **Nearest-neighbor** failed to generalize to unseen nut poses.  
-- **DMP+PID** struggled with precise orientation alignment.  
+- **Nearest-neighbor** failed to generalize to unseen nut poses  
+- **DMP+PID** struggled with precise orientation alignment  
 
-However, the neural network can **overfit** (e.g.\ if we increase with something like hidden = 256) and not learn the mapping between poses and actions. With only 200 demos, the net **interpolates** well but can’t **extrapolate** to rare poses. And since the environment’s sparse reward ($r=1$ only on success) supplies no corrective gradient, **fine-tuning via proximal policy optimization (PPO)** or would be the next steps for this research given more time to conduct such experiments.
+However, the neural network can **overfit** (e.g. if we increase with something like hidden = 256) and not learn the mapping between poses and actions. With only 200 demos, the net **interpolates** well but can’t **extrapolate** to rare poses. And since the environment’s sparse reward ($r=1$ only on success) supplies no corrective gradient, **fine-tuning via proximal policy optimization or (PPO)** would be the next steps for this research given more time to conduct such experiments.
 
 
 
