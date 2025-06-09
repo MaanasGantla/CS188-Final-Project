@@ -45,7 +45,7 @@ to make a separate invocation to this function.
 
 ### Test the Policy
 ```
-python test_deep.py
+mjpython test_deep.py
 ```
 
 This command queries from the deep_policy.py file, so there is no need to make a separate invocation
