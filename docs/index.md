@@ -2,7 +2,7 @@
 title: COM SCI 188 Final Project
 ---
 
-# Square Nut Assembly via Behavior Clo
+# Square Nut Assembly via Behavior Cloning
 
 **Author:** Maanas Gantla
 **Course:** COM SCI 188 (Spring 2025)  
