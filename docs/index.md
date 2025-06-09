@@ -46,11 +46,27 @@ This approach learns a closed-loop policy \(\pi: \mathbb R^{10}\to\mathbb R^7\) 
   | 128        | 256        | 5 × 10⁻⁴      | 78%          |
 
 
+## Discussion & Reflections
+
+Behavior cloning on the 10-D state is **simple**, **fast**, and yields up to 82 % success in minutes on CPU. The two-layer MLP converged quickly, whereas:
+
+- **Nearest-neighbor** failed to generalize to unseen nut poses.  
+- **DMP+PID** struggled with precise orientation alignment.  
+
+However, the BC model can **overfit** (e.g.\ hidden = 256) and still only sees “easy” trajectories. With only 200 demos, the net **interpolates** well but can’t **extrapolate** to rare poses. And since the environment’s sparse reward ($r=1$ only on success) supplies no corrective gradient, **fine-tuning via PPO** or a small **distance-shaping** term would be natural next steps.
+
+| ![](failure.png) | ![](success.png) |
+|:--------------------:|:--------------------:|
+| (a) Failed trial     | (b) Successful trial |
+
+## Demo Video
+
+
 ## Demo Video
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/vgVSUsx_pqk" frameborder="0" allowfullscreen></iframe>
 
 ## Code & Report
 
-- [Download full report (PDF)](../report.pdf)  
+- [Download full report (PDF)](https://drive.google.com/file/d/1oZDFewvSXlhzwvzbncq7DOppmCW52wDL/view?usp=sharing)  
 - [Source code on GitHub](https://github.com/MaanasGantla/CS188-Final-Project)
